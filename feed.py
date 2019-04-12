@@ -22,12 +22,13 @@ all_news = scraper.get_news()
 for article in all_news:
     items.append(populate_item(article))
 
-# feed = Feed(
-#     title = "Sample RSS Feed",
-#     link = "http://www.example.com/rss",
-#     description = "This is an example of how to use rfeed to generate an RSS 2.0 feed",
-#     language = "en-US",
-#     lastBuildDate = datetime.datetime.now(),
-#     items = [item1, item2])
+feed = Feed(
+    title = "Tree of Savior News",
+    link = "https://dark-nova.me/tos/feed.xml",
+    description = "Tree of Savior News",
+    language = "en-US",
+    lastBuildDate = datetime.datetime.now(),
+    items = items)
 
-# print(feed.rss())
+with open('feed.xml', 'w') as f:
+    f.write(feed.rss())
