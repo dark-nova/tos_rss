@@ -1,0 +1,14 @@
+{
+  "content": "A new article was posted to Tree of Savior News",
+  "embed": {
+    "title": "<<<{{EntryTitle}}>>>",
+    "url": "<<<{{EntryUrl}}>>>",
+    "thumbnail": {
+      "url": "https://dark-nova.me/tos/feed.png"
+    },
+    "author": {
+      "name": "Tree of Savior",
+      "url": "https://treeofsavior.com/page/news/"
+    }
+  }
+}
