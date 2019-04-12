@@ -65,19 +65,20 @@ def get_news():
 
     all_news = []
 
-    for article in news:
+    for news_article in news:
         article = {}
-        inner = article.find('div', '3D"box_inner"')
+        inner = news_article.find('div', '3D"box_inner"')
         article_date = inner.find('div', '3D"date')
         try:
             article_date = article_date.string.lstrip().split()
             article['date'] = convert_article_date(article_date)
-            article['url'] = get_article_url(article)
-            article['title'] = article.h3.string
+            article['url'] = get_article_url(news_article)
+            article['title'] = news_article.h3.string
             all_news.append(article)
         except AttributeError as e:
             logger.warning('Caught exception {} from {}, inner {}'
                            .format(e, article, inner))
+            pass
 
     return all_news
 
