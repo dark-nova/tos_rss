@@ -52,7 +52,7 @@ def convert_article_date(article_date):
 def get_article_url(article):
     url = article.a['href']
     url = no_quotes.sub('', url)
-    url = 'https://treeofsavior.com/{}'.format(url)
+    url = 'https://treeofsavior.com{}'.format(url)
     return url
 
 
