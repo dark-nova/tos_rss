@@ -41,17 +41,17 @@ logger.addHandler(fh)
 logger.addHandler(ch)
 
 
-def convert_news_date(news_date):
+def convert_article_date(article_date):
     for _m, regex in months.items():
-        if regex.match(news_date[0]):
+        if regex.match(article_date[0]):
             month = _m
-    day = int(non_numbers.sub('', news_date[1]))
-    year = int(news_date[2])
+    day = int(non_numbers.sub('', article_date[1]))
+    year = int(article_date[2])
     return (year, month, day)
 
 
-def get_news_url(_news):
-    url = _news.a['href']
+def get_article_url(article):
+    url = article.a['href']
     url = no_3D.sub('', url)
     url = no_quotes.sub('', url)
     return url
@@ -65,19 +65,19 @@ def get_news():
 
     all_news = []
 
-    for _news in news:
+    for article in news:
         article = {}
-        inner = _news.find('div', '3D"box_inner"')
-        news_date = inner.find('div', '3D"date')
+        inner = article.find('div', '3D"box_inner"')
+        article_date = inner.find('div', '3D"date')
         try:
-            news_date = news_date.string.lstrip().split()
-            article['date'] = convert_news_date(news_date)
-            article['url'] = get_news_url(_news)
-            article['title'] = _news.h3.string
+            article_date = article_date.string.lstrip().split()
+            article['date'] = convert_article_date(article_date)
+            article['url'] = get_article_url(article)
+            article['title'] = article.h3.string
             all_news.append(article)
         except AttributeError as e:
             logger.warning('Caught exception {} from {}, inner {}'
-                           .format(e, _news, inner))
+                           .format(e, article, inner))
 
     return all_news
 
