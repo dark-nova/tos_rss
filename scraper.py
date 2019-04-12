@@ -3,6 +3,24 @@ import re
 
 from bs4 import BeautifulSoup
 
+
+non_numbers = re.compile('[^0-9]')
+
+months = []
+months.append('0') # sentinel value
+months.append(re.compile('^jan', re.IGNORECASE))
+months.append(re.compile('^feb', re.IGNORECASE))
+months.append(re.compile('^mar', re.IGNORECASE))
+months.append(re.compile('^apr', re.IGNORECASE))
+months.append(re.compile('^may', re.IGNORECASE))
+months.append(re.compile('^jun', re.IGNORECASE))
+months.append(re.compile('^jul', re.IGNORECASE))
+months.append(re.compile('^aug', re.IGNORECASE))
+months.append(re.compile('^sep', re.IGNORECASE))
+months.append(re.compile('^oct', re.IGNORECASE))
+months.append(re.compile('^nov', re.IGNORECASE))
+months.append(re.compile('^dec', re.IGNORECASE))
+
 with open('example.mhtml', 'r') as example:
     soup = BeautifulSoup(example, 'html.parser')
 
