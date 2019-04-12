@@ -56,21 +56,30 @@ def get_news_url(_news):
     url = no_quotes.sub('', url)
     return url
 
-with open('example.mhtml', 'r') as example:
-    soup = BeautifulSoup(example, 'html.parser')
 
-news = soup.find_all('div', '3D"news_box"')
+def get_news():
+    with open('example.mhtml', 'r') as example:
+        soup = BeautifulSoup(example, 'html.parser')
 
-for _news in news:
-    inner = _news.find('div', '3D"box_inner"')
-    news_date = inner.find('div', '3D"date')
-    try:
-        news_date = news_date.string.lstrip().split()
-        news_date = convert_news_date(news_date)
-        news_url = get_news_url(_news)
-    except AttributeError as e:
-        logger.warning('Caught exception {} from {}, inner {}'
-                       .format(e, _news, inner))
+    news = soup.find_all('div', '3D"news_box"')
+
+    all_news = []
+
+    for _news in news:
+        article = {}
+        inner = _news.find('div', '3D"box_inner"')
+        news_date = inner.find('div', '3D"date')
+        try:
+            news_date = news_date.string.lstrip().split()
+            article['date'] = convert_news_date(news_date)
+            article['url'] = get_news_url(_news)
+            article['title'] = _news.h3.string
+            all_news.append(article)
+        except AttributeError as e:
+            logger.warning('Caught exception {} from {}, inner {}'
+                           .format(e, _news, inner))
+
+    return all_news
 
 # print(len(soup.find_all('div', '3D"news_box"')))
 # output: 9
