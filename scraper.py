@@ -48,8 +48,13 @@ for _news in news:
     news_date = inner.find('div', '3D"date')
     try:
         news_date = news_date.string.lstrip().split()
-        #for month in months[1:]:
-        print(news_date)
+        for _m, regex in months.items():
+            if regex.match(news_date[0]):
+                month = _m
+        day = int(non_numbers.sub('', news_date[1]))
+        year = int(news_date[2])
+        print(month, day, year)
+        #print(news_date)
     except AttributeError as e:
         logger.warning('Caught exception {} from {}, inner {}'
                        .format(e, _news, inner))
