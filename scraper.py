@@ -1,5 +1,7 @@
-from bs4 import BeautifulSoup
 import requests
+import re
+
+from bs4 import BeautifulSoup
 
 with open('example.mhtml', 'r') as example:
     soup = BeautifulSoup(example, 'html.parser')
