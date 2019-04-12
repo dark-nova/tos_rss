@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 
 
 non_numbers = re.compile('[^0-9]')
-no_3D = re.compile('3D')
 no_quotes = re.compile('"')
 
 months = {}
@@ -52,23 +51,24 @@ def convert_article_date(article_date):
 
 def get_article_url(article):
     url = article.a['href']
-    url = no_3D.sub('', url)
     url = no_quotes.sub('', url)
     return url
 
 
 def get_news():
-    with open('example.mhtml', 'r') as example:
-        soup = BeautifulSoup(example, 'html.parser')
+    # with open('example.mhtml', 'r') as example:
+    #     soup = BeautifulSoup(example, 'html.parser')
+    page = requests.get('https://treeofsavior.com/page/news/')
+    soup = BeautifulSoup(page.text, 'html.parser')
 
-    news = soup.find_all('div', '3D"news_box"')
+    news = soup.find_all('div', 'news_box')
 
     all_news = []
 
     for news_article in news:
         article = {}
-        inner = news_article.find('div', '3D"box_inner"')
-        article_date = inner.find('div', '3D"date')
+        inner = news_article.find('div', 'box_inner')
+        article_date = inner.find('div', 'date')
         try:
             article_date = article_date.string.lstrip().split()
             article['date'] = convert_article_date(article_date)
