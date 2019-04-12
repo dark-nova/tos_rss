@@ -1,5 +1,6 @@
 import requests
 import re
+import logging
 
 from bs4 import BeautifulSoup
 
@@ -21,6 +22,23 @@ months.append(re.compile('^oct', re.IGNORECASE))
 months.append(re.compile('^nov', re.IGNORECASE))
 months.append(re.compile('^dec', re.IGNORECASE))
 
+# adapted from https://docs.python.org/3/howto/logging-cookbook.html
+logger = logging.getLogger('tos_scraper')
+logger.setLevel(logging.DEBUG)
+
+fh = logging.FileHandler('scraper.log')
+fh.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler()
+ch.setLevel(logging.WARNING)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+
+logger.addHandler(fh)
+logger.addHandler(ch)
+
 with open('example.mhtml', 'r') as example:
     soup = BeautifulSoup(example, 'html.parser')
 
@@ -33,7 +51,8 @@ for _news in news:
         news_date = news_date.string.lstrip()
         print(news_date)
     except AttributeError as e:
-        print('Skipped, exception: ', e)
+        logger.warning('Caught exception {} from {}, inner {}'
+                       .format(e, _news, inner))
 
 # print(len(soup.find_all('div', '3D"news_box"')))
 # output: 9
