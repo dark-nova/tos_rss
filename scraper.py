@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 
 
 non_numbers = re.compile('[^0-9]')
+no_3D = re.compile('3D')
+no_quotes = re.compile('"')
 
 months = {}
 months[1] = re.compile('^jan', re.IGNORECASE)
@@ -38,6 +40,22 @@ ch.setFormatter(formatter)
 logger.addHandler(fh)
 logger.addHandler(ch)
 
+
+def convert_news_date(news_date):
+    for _m, regex in months.items():
+        if regex.match(news_date[0]):
+            month = _m
+    day = int(non_numbers.sub('', news_date[1]))
+    year = int(news_date[2])
+    return (year, month, day)
+
+
+def get_news_url(_news):
+    url = _news.a['href']
+    url = no_3D.sub('', url)
+    url = no_quotes.sub('', url)
+    return url
+
 with open('example.mhtml', 'r') as example:
     soup = BeautifulSoup(example, 'html.parser')
 
@@ -48,13 +66,8 @@ for _news in news:
     news_date = inner.find('div', '3D"date')
     try:
         news_date = news_date.string.lstrip().split()
-        for _m, regex in months.items():
-            if regex.match(news_date[0]):
-                month = _m
-        day = int(non_numbers.sub('', news_date[1]))
-        year = int(news_date[2])
-        print(month, day, year)
-        #print(news_date)
+        news_date = convert_news_date(news_date)
+        news_url = get_news_url(_news)
     except AttributeError as e:
         logger.warning('Caught exception {} from {}, inner {}'
                        .format(e, _news, inner))
