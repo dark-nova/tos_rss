@@ -1,4 +1,4 @@
-import datetime 
+import datetime
 
 from rfeed import *
 
@@ -30,5 +30,5 @@ feed = Feed(
     lastBuildDate = datetime.datetime.now(),
     items = items)
 
-with open('/web/tos/feed.xml', 'w') as f:
+with open('feed.xml', 'w') as f:
     f.write(feed.rss())
