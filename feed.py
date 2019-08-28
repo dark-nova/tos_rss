@@ -40,7 +40,7 @@ if __name__ == '__main__':
         href='https://dark-nova.me/tos/feed.xml',
         rel='self'
         )
-    fg.logo('feed.png')
+    fg.logo('https://dark-nova.me/tos/feed.png')
     fg.language('en-US')
 
     all_news = scraper.get_news()
