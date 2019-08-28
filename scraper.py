@@ -80,10 +80,10 @@ def get_article_url(article):
 
 
 def get_news():
-    with open('example.html', 'r') as example:
-        soup = BeautifulSoup(example, 'html.parser')
-    # page = requests.get('https://treeofsavior.com/page/news/')
-    # soup = BeautifulSoup(page.text, 'html.parser')
+    # with open('example.html', 'r') as example:
+    #     soup = BeautifulSoup(example, 'html.parser')
+    page = requests.get('https://treeofsavior.com/page/news/')
+    soup = BeautifulSoup(page.text, 'html.parser')
 
     news = soup.find_all('div', 'news_box')
 
@@ -131,6 +131,3 @@ def get_news():
     db.purge_old()
 
     return all_news
-
-# print(len(soup.find_all('div', '3D"news_box"')))
-# output: 9
