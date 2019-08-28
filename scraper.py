@@ -120,7 +120,7 @@ def get_news():
                         )
                 db.add_entry(
                     article['url'],
-                    pendulum.datetime(*article['date'])
+                    article['date']
                     )
             all_news.append(article)
         except AttributeError as e:
