@@ -1,8 +1,12 @@
-import requests
-import re
 import logging
+import re
+import sqlite3
 
+import pendulum
+import requests
 from bs4 import BeautifulSoup
+
+import db
 
 
 non_numbers = re.compile('[^0-9]')
@@ -40,27 +44,46 @@ logger.addHandler(fh)
 logger.addHandler(ch)
 
 
-def convert_article_date(article_date):
-    for _m, regex in months.items():
+def convert_article_date(article_date: list):
+    """Given a date in list like:
+    ['January', '1st,', '2000']
+
+    ...extract the date.
+
+    Args:
+        article_date (list): yes
+
+    Returns:
+        tuple: (year, month, day)
+
+    """
+    for m, regex in months.items():
         if regex.match(article_date[0]):
-            month = _m
+            month = m
     day = int(non_numbers.sub('', article_date[1]))
     year = int(article_date[2])
     return (year, month, day)
 
 
 def get_article_url(article):
-    url = article.a['href']
-    url = no_quotes.sub('', url)
-    url = 'https://treeofsavior.com{}'.format(url)
-    return url
+    """Gets the url of a given `article`.
+
+    Args:
+        article (bs4.element.Tag): the article in the page
+
+    Returns:
+        str: the url
+
+    """
+    url = no_quotes.sub('', article.a['href'])
+    return f'https://treeofsavior.com{url}'
 
 
 def get_news():
-    # with open('example.mhtml', 'r') as example:
-    #     soup = BeautifulSoup(example, 'html.parser')
-    page = requests.get('https://treeofsavior.com/page/news/')
-    soup = BeautifulSoup(page.text, 'html.parser')
+    with open('example.html', 'r') as example:
+        soup = BeautifulSoup(example, 'html.parser')
+    # page = requests.get('https://treeofsavior.com/page/news/')
+    # soup = BeautifulSoup(page.text, 'html.parser')
 
     news = soup.find_all('div', 'news_box')
 
@@ -72,14 +95,38 @@ def get_news():
         article_date = inner.find('div', 'date')
         try:
             article_date = article_date.string.lstrip().split()
-            article['date'] = convert_article_date(article_date)
             article['url'] = get_article_url(news_article)
             article['title'] = news_article.h3.string
+            a_date = convert_article_date(article_date)
+            today = pendulum.today()
+            if db.check_if_entry_exists(article['url']):
+                article['date'] = db.get_entry_time(article['url'])
+            else:
+                if today == pendulum.datetime(*a_date, tz = today.tz):
+                    article['date'] = pendulum.datetime(
+                        *a_date,
+                        pendulum.now(tz = 'UTC').hour,
+                        tz = 'UTC'
+                        )
+                else:
+                    # If the article date doesn't match up with today's date,
+                    # do not modify the publish time. Fallback for
+                    # migrating setups, or resuming after pausing for some
+                    # time.
+                    article['date'] = pendulum.datetime(
+                        *a_date,
+                        0,
+                        tz = 'UTC'
+                        )
+                db.add_entry(
+                    article['url'],
+                    pendulum.datetime(*article['date'])
+                    )
             all_news.append(article)
         except AttributeError as e:
-            logger.warning('Caught exception {} from {}, inner {}'
-                           .format(e, article, inner))
-            pass
+            logger.warning(
+                f'Caught exception {e} from {article}, inner {inner}'
+                )
 
     return all_news
 
