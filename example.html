@@ -1,0 +1,655 @@
+<!DOCTYPE html><html><head><noscript><meta http-equiv="refresh" content="0; url=http://www.enable-javascript.com/"></noscript><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta http-equiv="Content-Style-Type" content="text/css" /><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge" /><meta name="theme-color" content="#002a3a"><meta property="fb:app_id" content="967291286627896" /><title>Tree of Savior</title><link rel="shortcut icon" href="/img/TOS_favicon.png" /><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Quattrocento:400,700.css?2019080916"/><link rel="stylesheet" type="text/css" href="/css/common.min.css?2019080916"/><link rel="stylesheet" type="text/css" href="/css/swiper.min.css?2019080916"/><link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css?2019080916"/><link rel="stylesheet" type="text/css" href="/css/sweet-alert.min.css?2019080916"/><link rel="stylesheet" type="text/css" href="/css/page/news/index.min.css?2019080916"/><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><script type="text/javascript">
+<!--
+var USER_ID = '';
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61365656-3', 'auto');
+  if (USER_ID != null && USER_ID != undefined && USER_ID != '') {
+	  ga('set', '&uid', USER_ID);
+  }
+  ga('send', 'pageview');
+//-->
+</script>
+</head><body class="body" >
+<input type="hidden" id="sFbAppId" value="967291286627896"/>
+<input type="hidden" id="sFbAppUrl" value="treeofsavior.com"/>
+<input type="hidden" id="sGitHubClientId" value="c23c276e93e9788458ff"/>
+<input type="hidden" id="sGitHubRedirectUrl" value="treeofsavior.com"/>
+<input type="hidden" id="sGoogleSimpleApiKey" value="AIzaSyDglWfeaSLi84INvPsM3oCo2EeNNtwxyUM"/>
+<input type="hidden" id="sGoogleClientId" value="880717186638-jgraegubjlccl2k517jbjqgk6j04fd6l.apps.googleusercontent.com"/>
+<input type="hidden" id="sGoogleRedirectUrl" value="https://treeofsavior.com/google/oauth2callback/"/>
+<input type="hidden" id="nTimestamp" value="1566972191000">	
+
+
+<div id="wrap" class="">
+
+		
+		<div id="header_wrap" class="">
+			<header>
+				<!--// clock -->
+				<div id="clock-wrapper" class="clock-wrapper">
+					<div id="clockTime" class="clockTime left"></div>
+					<div class="left">
+						<div id="clockTZ" class="clockTZ right"></div>
+						<div id="clockAPM" class="clockAPM right"></div>
+						<div id="clockDate" class="clockDate clear right"></div>
+					</div>
+				</div>
+				<!--  clock //-->
+
+				<h1 id="logo"><a href="/page/main/"><img src="/img/common/logo.png"></a></h1>
+				<nav id="web_menu" class="swiper-container">
+					<ul class="swiper-wrapper tabs">
+						<li class="li swiper-slide on"><a href="/page/news/">NEWS</a></li>
+						<li class="li swiper-slide"><a href="/page/class/">CLASS</a></li>
+						<li class="li swiper-slide"><a href="/page/guide/">GUIDE</a></li>
+						<li class="li swiper-slide"><a href="https://forum.treeofsavior.com">FORUMS</a></li>
+						<li class="li swiper-slide"><a href="/page/support/">SUPPORT</a></li>
+						<li class="li swiper-slide"><a href="/page/faq/">FAQ</a></li>
+						<li class="li swiper-slide"><a href="/page/translations/">TRANSLATIONS</a></li>
+					</ul>
+				</nav>
+				
+				<p id="login">
+					<a href="#"><span class="ef"></span><span class="log_text">LOG IN</span></a>
+					<ul id="login_menu">
+						<li><a onclick="javascript:OpenFbLoginPopup('')"><i class="fa fa-facebook" aria-hidden="true"></i>LOG IN WITH FACEBOOK</a></li>
+						<li><a onclick="javascript:OpenGoogleLoginPopup('')"><i class="fa fa-google-plus" aria-hidden="true"></i>LOG IN WITH GOOGLE+</a></li>
+					</ul>
+				</p>	
+			</header>
+		</div>
+	
+	
+	<section class="">
+		<div id="" class="section_inner">
+			<div id="search" class="">
+				<i class="left"><img src="/img/common/search_icon.png"></i>
+				<input type="text" id="searchInput" name="searchInput" value="">
+				<h1 >Search <span>article</span></h1>
+				<div id="" class="close">
+					<a><img src="/img/common/close_button.png"></a>
+				</div>
+			</div>
+			
+			<div id="category" class="">
+				<ul>
+					<li><a class="active" data-value=""><span class="ef"></span><span class="category_text ">All</span></a></li>
+					<li><a data-value="2"><span class="ef"></span><span class="category_text">Announcements</span></a></li>
+					<li ><a data-value="33"><span class="ef"></span><span class="category_text">Event</span></a></li>
+					<li><a data-value="3"><span class="ef"></span><span class="category_text">Patch Note</span></a></li>
+					<li ><a data-value="31"><span class="ef"></span><span class="category_text">Developer's Blog</span></a></li>
+					<li ><a data-value="32"><span class="ef"></span><span class="category_text">Known Issues</span></a></li>
+				</ul>
+			</div>
+
+			<h1>ALL</h1>
+			<div id="view_type" class="right">
+				<a class="left view_active" data-value="r"><i class="fa fa-clock-o" aria-hidden="true"></i>MOST RECENT</a>
+				<a class="left" data-value="v"><i class="fa fa-eye" aria-hidden="true"></i>MOST VIEWED</a>
+			</div>
+
+			<div id="news_box_wrap" class="">
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1803">
+						<figure>
+							<img src="/uploads/ckeditor/1850184f8ea6fc974a5e843f20c0226c.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">[UPDATE] Known Issues - August 27, 2019</h3>
+							<p class="ellipsis">Greetings Saviors,
+
+&nbsp;
+
+The following issue has recently come to our attention:
+
+&nbsp;
+
+&nbsp;
+
+- The issue with the level of Unique Enchant Jewel from Leticia Cube
+
+- [RESOLVED] Snow Globe Cube being displayed as Wake Up Special Premium Package in the Shop UI
+
+&nbsp;
+
+The devs are aware of the above issue and the Lv.1 Unique Enchant Jewels will be retrieved and replaced with appropriate Unique Enchant Jewels after the current edition of Leticia Cube is removed.&nbsp;
+
+[RESOLVED] The Snow Globe Cube will now display the correct name in the game&#39;s Shop UI.
+
+&nbsp;
+
+&nbsp;
+
+Thank you for your patience understanding.&nbsp;</p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left known">
+								Known Issues							</div>
+							<div id="" class="date right">
+								August 27th, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1800">
+						<figure>
+							<img src="/uploads/ckeditor/17e4a41355f41bac2fb4178049546245.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">[UPDATE] Scheduled Maintenance for August 27, 2019</h3>
+							<p class="ellipsis">Greetings, Saviors!We would like to announce the details of our weekly maintenance for (August 27, 2019). Make sure to check below for the maintenance schedule and patch notes.Please note that other issues and bugs are also being worked on even if they are not mentioned below.</p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left patch">
+								Patch Note							</div>
+							<div id="" class="date right">
+								August 26th, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1802">
+						<figure>
+							<img src="/uploads/ckeditor/176a4cb48881a02aaf2b78c9b7e3cdfd.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">[Special] Token Pack</h3>
+							<p class="ellipsis">
+
+Greetings, Saviors!
+
+&nbsp;
+
+Get Tokens at a discounted price from&nbsp;the TP shop!&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+&nbsp;
+
+&nbsp;
+
+Sale Period
+
+
+FROM the scheduled maintenance on August 27, 2019
+TO the scheduled maintenance on September 17, 2019
+
+&nbsp;
+
+&nbsp;
+
+Token Pack
+
+&nbsp;
+
+- Token x2&nbsp;149 TP
+
+&nbsp;
+
+&nbsp;</p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left event">
+								Event							</div>
+							<div id="" class="date right">
+								August 26th, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1801">
+						<figure>
+							<img src="/uploads/ckeditor/dbeba1954abb8354937f11cf92d1640d.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">[SPECIAL] Snow Globe Cube - August 27, 2019</h3>
+							<p class="ellipsis"></p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left event">
+								Event							</div>
+							<div id="" class="date right">
+								August 26th, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1799">
+						<figure>
+							<img src="/uploads/ckeditor/2556c6cb4084c4f9a06dc9c01562147d.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">Leticia's Secret Cube: August 27</h3>
+							<p class="ellipsis">
+
+&nbsp;
+
+※ IMPORTANT: Please note that your character must be above level 40 to use this content.</p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left announce">
+								Announcement							</div>
+							<div id="" class="date right">
+								August 26th, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1791">
+						<figure>
+							<img src="/uploads/ckeditor/9686a4b5360c76d7ba6f69e08fe72c59.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">Here Piggy Piggy Season 2</h3>
+							<p class="ellipsis">
+
+&nbsp;
+
+Greetings, Saviors!
+
+&nbsp;
+
+The farmyard of Lord of Orsha Inesa Hamondale had an accident and broke&nbsp;again. The livestock including her ladyship&#39;s Golden Pigs ran away into the city. The Lord is once again offering generous rewards to anyone who brings her lost pets around the town.&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+&nbsp;
+
+&nbsp;
+
+Event Period
+
+&nbsp;
+
+FROM the scheduled maintenance on August 27, 2019
+TO the scheduled maintenance on September 24, 2019
+
+&nbsp;
+
+&nbsp;
+
+Who Can Participate
+
+&nbsp;
+
+- Characters of level 50 and above
+
+&nbsp;
+
+
+How to Participate
+
+&nbsp;
+
+STEP 1. Find the Golden Pig Search Squad NPC in the cities of Klaipeda, Orsha or Fedimian and enter the event mission. You can auto-match with party members, or enter immediately. There is no limit to the number of times you can enter the mission, but you will only receive rewards once per day, per team (resets at 00:00).
+
+&nbsp;
+
+STEP 2. Once inside the mission area, scour the city with your party members and look for the hidden piggies. The Golden Pigs will appear in sets of three at a time, each pig hidden in a different random spot around town. Your party will have 4 minutes to find 9 Golden Pigs in total.
+
+&nbsp;
+
+STEP 3. If your party succeeds in clearing the mission, the party member who finds the most Golden Pigs receives a bonus Attribute Points: 1,000 (14 Days) x1, but all members of the party receive both Attribute Points: 500 (14 Days) x1 and [Event] Golden Pig Box x1! Each Golden Pig Box lets you get one of the following:
+
+&nbsp;
+
+- Golden Anvil (14 Days) x1
+- Instanced Dungeon One Entry Voucher (14 Days) x1
+- Challenge Mode One Entry Voucher (14 Days) x1
+- Challenge Portal Scroll (14 Days) x1
+
+
+STEP 4. Collect even more rewards according to your total number of rewarded missions! Here&rsquo;s what you can get.
+
+&nbsp;
+
+05 MISSIONS: Enchant Scroll (14 Days) x5
+10 MISSIONS: Class Change Voucher Lv 1 (14 Days) x1
+20 MISSIONS: Attribute Reset Potion (14 Days) x1
+
+&nbsp;
+
+&nbsp;
+
+Important
+
+&nbsp;
+
+- Characters that do not move during the mission will be considered as AFK and will NOT receive any rewards.
+- Mission scores are shared with the entire party, so every time a party member finds a Golden Pig, your score goes up by +1.
+- If there is a tie between the players who found the most Golden Pigs, both winners will receive the corresponding bonus reward.
+- If you receive the general rewards on your first daily entry but not the bonus reward, you can still receive the bonus in later entries if you are the player who finds the most Golden Pigs.
+- Event rewards are sent directly to your current character&rsquo;s inventory after the mission is cleared.
+- All event rewards can be transferred via Team Storage, but not traded to other players.
+- Unused [Event] Golden Pig Boxes will be automatically deleted during the scheduled maintenance of October 1, 2019.</p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left event">
+								Event							</div>
+							<div id="" class="date right">
+								August 26th, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1792">
+						<figure>
+							<img src="/uploads/ckeditor/8ef080c194b4ba095aac660efee7d8d9.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">Giltine's Team Clash: Second Round</h3>
+							<p class="ellipsis">
+
+&nbsp;
+
+Greetings, Saviors!
+
+&nbsp;
+
+The evil Giltine has descended upon Klaipeda once again, to bring chaos into the city and gather more followers into her realm. Stand, ye mighty saviors, show thy worth to the evil Giltine and claim her favor amongst others!
+
+&nbsp;
+
+&nbsp;
+
+
+&nbsp;
+
+
+Event Period
+
+&nbsp;
+
+FROM the scheduled maintenance on August 27, 2019
+TO the scheduled maintenance on September 24, 2019
+
+&nbsp;
+
+&nbsp;
+
+Who Can Participate
+
+&nbsp;
+
+- Characters of level 50 and above
+
+&nbsp;
+
+
+How to Participate
+
+&nbsp;
+
+STEP 1. Find the Giltine Apparition NPC near the Residential District in the city of Klaipeda and interact with her to join the team clash. You can try for an unlimited amount but may claim the reward box only&nbsp;one time per day, per team (resets at 00:00).&nbsp;
+
+&nbsp;
+
+STEP 2. Once inside the area, you will be placed in one of two teams (Blue Team or Red Team), each composed of three players. The Red Team&rsquo;s camp is a triangle located near the Fishing Spot, while the Blue Team&rsquo;s is a circle by the Item Merchant NPC.
+
+&nbsp;
+
+STEP 3. Click the blue or red summoning devices in the center of Klaipeda to summon a set number of monsters, which will begin to move towards the opposing team&rsquo;s camp.
+
+&nbsp;
+
+- Note: The colors of the summoning devices are not related to your team&rsquo;s, so everyone can use both. However, each device may summon different kinds of monsters worth different points.
+
+&nbsp;
+
+STEP 4. Coordinate with your team members and defeat the opponents&rsquo; monsters to keep them away from your own camp.
+
+&nbsp;
+
+STEP 5. Do not lose hope if your team is losing the battle! At the 4-minute mark, all monsters summoned by the team with the lowest number of scores (the team with fewer monsters successfully sent to the opposing camp) receive a +10 movement speed boost.
+
+&nbsp;
+
+STEP 6. After 8 minutes, the team responsible for the most successful monster invasion is declared the winner. All players will&nbsp;receive Giltine&#39;s Gift Box x1&nbsp;and [Event] Vasalos Coin x50 as participation prizes. Each Gift Box contains one of the following random items:
+
+&nbsp;
+
+- Premium Awakening Stone (14 days) x5
+- [Event]Lv. 400 Unique Enchant Jewel x1
+- Raid Portal Stone x3
+- Blessed Shard x2
+- Sierra Powder x10
+- Attribute Points: 500 (14 Days) x1
+
+&nbsp;
+
+STEP 7. Prove yourself as a true follower of Giltine and complete 15 victories in the team clash to receive Giltine Follower Armband x1!
+
+&nbsp;
+
+
+Important
+
+&nbsp;
+
+- You may quit the team clash at any time, but you will NOT receive the participation reward.
+- Team clash rewards are automatically sent to the participating character.
+- All rewards obtained through this event CAN be transferred via Team Storage.&nbsp;Gift Boxes, Premium Awakening Stones, Unique Enchant Jewels, Attribute Points, and Armbands, however, CANNOT be traded with other players.
+- Unopened Gift Boxes will be automatically deleted during the scheduled maintenance of October 1, 2019.</p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left event">
+								Event							</div>
+							<div id="" class="date right">
+								August 26th, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1798">
+						<figure>
+							<img src="/uploads/ckeditor/0f91f7a0e31d80c414fb3223e910a0ee.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">Staff Summer Supply</h3>
+							<p class="ellipsis">Greetings, Saviors!
+
+&nbsp;
+
+In memory of the short Summer, the staff&nbsp;are sending you surplus supplies.&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+&nbsp;
+
+&nbsp;
+
+Event Period
+
+&nbsp;
+
+FROM&nbsp;the scheduled maintenance on August 20, 2019
+TO&nbsp;the scheduled maintenance on October 15, 2019
+
+&nbsp;
+
+&nbsp;
+
+Who Can Participate
+
+&nbsp;
+
+- Characters of&nbsp;all levels
+
+&nbsp;
+
+&nbsp;
+
+How to Participate
+
+&nbsp;
+
+- Log in every Friday, Saturday, and Sunday (server time) to receive [Event] Vasalos Coins x150.&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+Important
+
+&nbsp;
+
+- The bonus [Event] Vasalos Coins can be retrieved each day from your Lodge mailbox each day from 00:00 to 23:59 EDT.&nbsp;</p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left event">
+								Event							</div>
+							<div id="" class="date right">
+								August 22nd, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				<div id="" class="news_box">
+					<a href="/page/news/view.php?n=1797">
+						<figure>
+							<img src="/uploads/ckeditor/eb70e7fabe7defb884355bc8ac0b1341.jpg">
+							<div id="" class="figure_read">
+								Read more
+							</div>
+						</figure>
+					</a>
+					<div id="" class="box_inner">
+						<div id="" class="contents">
+							<h3 class="ellipsis">[UPDATE] Known Issues - August 21, 2019</h3>
+							<p class="ellipsis">Greetings, Saviors.
+
+&nbsp;
+
+The following issues have&nbsp;recently come to our attention since the Scheduled Maintenance on August 20, 2019:
+
+&nbsp;
+
+- [RESOLVED] Paperbox removed from inventory
+- Players being unable to close the Shop UI by pressing the close button
+
+&nbsp;
+
+The removed item will be restored next week and the issues with the Shop UI is currently under investigation by our devs.
+
+&nbsp;
+
+[UPDATE] The removed Paperboxes&nbsp;are now restored. Please check your Market Retrieve Tab. If your Paperbox is not restored, please submit a ticket.&nbsp;&nbsp;
+
+&nbsp;
+
+Thank you for your patience and understanding.
+
+&nbsp;
+
+Regards,
+
+Tree of Savior Team</p>
+						</div>
+						<div id="" class="bottom">
+							<div id="" class="category left known">
+								Known Issues							</div>
+							<div id="" class="date right">
+								August 22nd, 2019							</div>
+						</div>
+					</div><!-- box_inner -->
+				</div><!-- newsbox -->
+				
+			</div><!-- news_box_wrap -->
+
+			
+			<div id="pagination" class="">
+				<ul>	
+				<li><a href="/page/news/index.php?n=1"   class="active">1</a></li>
+				<li><a href="/page/news/index.php?n=2"  >2</a></li>
+				<li><a href="/page/news/index.php?n=3"  >3</a></li>
+				<li><a href="/page/news/index.php?n=4"  >4</a></li>
+				<li><a href="/page/news/index.php?n=5"  >5</a></li>
+				<li><a href="/page/news/index.php?n=..."  >...</a></li>
+				<li><a href="/page/news/index.php?n=137"  >137</a></li>
+				<li><a href="/page/news/index.php?n=2"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+
+				</ul>
+			</div>
+			
+		</div><!-- section inner -->
+	</section>
+	<footer>
+		<div id="" class="section_inner">
+			<div id="privacy" class="">
+				<ul>
+					<li><a href="/page/common/?t=pp">Privacy Policy </a></li>
+					<li><a href="/page/common/?t=ts">Term of Service</a></li>
+					<li><a href="/page/common/?t=eula">EULA</a></li>
+					<li><a href="/page/common/?t=op">Our Partners</a></li>
+				</ul>
+			</div>
+			<div id="sns" class="">
+				<ul>
+					<li><a href="https://www.instagram.com/tos_steam/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					<li><a href="https://www.facebook.com/treeofsavior/" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+					<li><a href="https://www.youtube.com/channel/UCMxglTOQpL2-UhHWun7OWdQ" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+			<div id="imc" class="clear">
+				<h1 id="" class="left"><a href="http://imc.co.kr/?mid=IMC_EN"><img src="/img/common/imc_logo.png"></a></h1>
+				<p class="left"><i class="fa fa-copyright" aria-hidden="true"></i> IMCGAMES CO., LTD. All Rights Reserved.</p>
+			</div>
+		</div>
+	</footer>
+		
+	
+</div><!-- wrap -->
+
+<script type="text/JavaScript" src="/js/lib/jquery.min.js?2019080916"></script><script type="text/JavaScript" src="/js/lib/jquery-ui.min.js?2019080916"></script><script type="text/JavaScript" src="/js/lib/common.min.js?2019080916"></script><script type="text/JavaScript" src="/js/lib/fb.min.js?2019080916"></script><script type="text/JavaScript" src="/js/lib/prefixfree.min.js?2019080916"></script><script type="text/JavaScript" src="/js/lib/swiper.min.js?2019080916"></script><script type="text/JavaScript" src="/js/lib/moment.min.js?2019080916"></script><script type="text/JavaScript" src="/js/lib/moment-timezone.min.js?2019080916"></script><script type="text/JavaScript" src="/js/lib/sweet-alert.min.js?2019080916"></script><script type="text/JavaScript" src="https://apis.google.com/js/client.js?2019080916"></script><script type="text/JavaScript" src="/js/page/news/index.min.js?2019080916"></script></body></html>

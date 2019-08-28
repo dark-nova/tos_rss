@@ -7,6 +7,5 @@
 
 # Project-specific files
 rss.db
-*.*html
 feed.xml
 scraper.log
