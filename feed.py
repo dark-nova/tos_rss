@@ -1,34 +1,50 @@
 import datetime
 
-from rfeed import *
+from feedgen.feed import FeedGenerator
 
 import scraper
 
 
-def populate_item(article):
-    return Item(
-        title = article['title'],
-        link = article['url'],
-        description = article['title'],
-        author = 'Tree of Savior',
-        guid = Guid(article['url']),
-        pubDate = datetime.datetime(*article['date'])
-    )
+def populate_item(fg: FeedGenerator, article: dict):
+    """Populates an entry for `fg`.
+
+    Args:
+        fg (FeedGenerator): the feed to add entries
+        article (dict): the article to enter as entry
+
+    Returns:
+        None
+    
+    """
+
+    entry = fg.add_entry()
+    entry.title(article['title'])
+    entry.author({'name': 'Tree of Savior'})
+    entry.description(article['title'])
+    entry.link(href = article['url'])
+    entry.guid(article['url'])
+    entry.pubDate(article['date'])
+    return
 
 
-items = []
+if __name__ == '__main__':
+    fg = FeedGenerator()
+    fg.title('Tree of Savior News')
+    fg.author({'name': 'IMC Games'})
+    fg.description('News for the International Tree of Savior Servers')
+    fg.link(
+        href='https://treeofsavior.com/page/news/',
+        rel='alternate'
+        )
+    fg.link(
+        href='https://dark-nova.me/tos/feed.xml',
+        rel='self'
+        )
+    fg.logo('feed.png')
+    fg.language('en-US')
 
-all_news = scraper.get_news()
-for article in all_news:
-    items.append(populate_item(article))
+    all_news = scraper.get_news()
+    for article in all_news:
+        populate_item(fg, article)
 
-feed = Feed(
-    title = "Tree of Savior News",
-    link = "https://dark-nova.me/tos/feed.xml",
-    description = "Tree of Savior News",
-    language = "en-US",
-    lastBuildDate = datetime.datetime.now(),
-    items = items)
-
-with open('feed.xml', 'w') as f:
-    f.write(feed.rss())
+    fg.rss_file('feed.xml')
