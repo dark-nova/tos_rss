@@ -128,6 +128,8 @@ def get_news():
                 f'Caught exception {e} from {article}, inner {inner}'
                 )
 
+    db.purge_old()
+
     return all_news
 
 # print(len(soup.find_all('div', '3D"news_box"')))

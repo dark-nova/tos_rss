@@ -104,5 +104,19 @@ def get_entry_time(url: str):
         raise Exception('Table recreated')
 
 
+def purge_old():
+    conn = sqlite3.connect('rss.db')
+    c = conn.cursor()
+    c.execute(
+        """delete from entries where url not in
+        (select url from entries order by year desc, month desc, day desc
+        limit 20)
+        """
+        )
+    conn.commit()
+    conn.close()
+    return
+
+
 if __name__ == '__main__':
     create()
