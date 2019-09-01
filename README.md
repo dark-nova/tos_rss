@@ -13,10 +13,11 @@ Run [`feed.py`](feed.py). You may also run [`db.py`](db.py) first to create the 
 This code is designed around the following:
 
 - Python 3.5+
-- `bs4` and its dependencies, used for scraping
-- `feedgen` and its dependencies, used for creating the RSS feed
-- `pendulum` and its dependencies, used for date and time
-- other [requirements](requirements.txt)
+    - `bs4` and its dependencies, used for scraping
+    - `requests` and its dependencies, used in conjunction with `bs4`
+    - `feedgen` and its dependencies, used for creating the RSS feed
+    - `pendulum` and its dependencies, used for date and time
+    - other [requirements](requirements.txt)
 
 ## Setup
 
