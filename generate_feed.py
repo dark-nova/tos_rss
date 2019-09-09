@@ -47,4 +47,9 @@ if __name__ == '__main__':
     for article in all_news:
         populate_item(fg, article)
 
-    fg.rss_file('feed.xml')
+    if len(fg.entry()) > 0:
+        fg.rss_file('feed.xml')
+    else:
+        scraper.logger.error(
+            f'Could not generate entries for feed'
+            )
